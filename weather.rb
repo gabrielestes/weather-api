@@ -30,6 +30,9 @@ class WeatherData < Forecast
 
   def get_weather_data
     @weather_data = HTTParty.get(@url).parsed_response
+    @sun_phase = @weather_data["sun_phase"]
+    @alerts = @weather_data["alerts"]
+    @hurricane = @weather_data["currenthurricane"][0]
     @weather_data = @weather_data["forecast"]["txt_forecast"]["forecastday"]
   end
 end
@@ -39,10 +42,12 @@ def main
   data.input_parser
   data.get_url
   data.get_weather_data
-  data.set_days
-  # puts data.get_today
+  puts data.get_sun_phase
+  puts data.get_today
   # puts data.get_tonight
-  # puts data.get_ten_day
+  # data.get_ten_day
+  puts data.hurricane?
+  puts data.alerts?
 end
 
 main if __FILE__ == $PROGRAM_NAME
