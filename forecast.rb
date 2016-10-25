@@ -19,7 +19,7 @@ class Forecast
   end
 
   def get_tonight
-    "Tonight's weather: #{@weather_data[2]["fcttext"]} \n" +
+    "Tonight's weather: #{@weather_data[2]["fcttext"]}\n".blue +
     "=" * 50 + "\n"
   end
 

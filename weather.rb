@@ -44,8 +44,8 @@ def main
   data.get_weather_data
   puts data.get_sun_phase
   puts data.get_today
-  # puts data.get_tonight
-  # data.get_ten_day
+  puts data.get_tonight
+  data.get_ten_day
   puts data.hurricane?
   puts data.alerts?
 end
